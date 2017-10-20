@@ -1,0 +1,8 @@
+//Backend Paper
+
+using mongodb or postgresql, MYSQL database engine
+using nodejs python flask or a php backend restAPI
+for security using accesstoken and apikeys
+data => sanitaize the input , and perpare it
+Duplicates => check the user input in the database before commiting
+CURD => use mysql statment instead of storing in a localstorage i.e (insert , update ...)

@@ -1,0 +1,53 @@
+    <div ng-controller="deya" class="container">
+        <div class="main-content">
+            <h1>Add New User Person</h1>
+
+            <div class="input-group">
+              <input type="text" ng-model="input1" class="form-control" placeholder="Person Name">
+              <span class="input-group-btn">
+                <button class="btn btn-default" ng-click="deya()" type="button">ADD</button>
+            </span>
+            <span class="input-group-addon">
+                <label for="Genius"> Genius &nbsp;</label>
+                <input type="checkbox" name="Genius" value="Genius"  ng-model="check_genius" ng-init="check_genius = flase">
+                <label for="Genius">&nbsp; Rich &nbsp;</label>
+                <input type="checkbox" value="Rich"  ng-model="check_rich">
+                <label for="Genius">&nbsp; Super Power &nbsp;</label>
+                <input type="checkbox" value="SuperPower"  ng-model="check_spower">
+            </span>
+            <span class="input-group-btn">
+                <button class="btn btn-default" ng-click="clearAll()" type="button">Clear ALl</button>
+            </span>
+        </div><!-- /input-group -->
+        <table class="table">
+          <tr>
+            <th>Person Name</th>
+            <th>Genius</th>
+            <th>Rich</th>
+            <th>Super Power</th>
+            <th>Delete</th>
+        </tr>
+        <tr ng-repeat="x in data">
+            <td>{{x.name}}</td>
+            <td><input type="checkbox"  value="genius"ng-click="updateValue($event  ,x)" ng-checked="x.genius == true" value="nmemo"></td>
+            <td><input type="checkbox"  value="rich" ng-click="updateValue($event  ,x)" ng-checked="x.rich == true"></td>
+            <td><input type="checkbox" value="spower" ng-click="updateValue($event  ,x)"  ng-checked="x.spower == true"></td>
+            <td ng-mouseover="deleteMessage='Are you sure ';showWar=true" ng-mouseleave="deleteMessage='X';showWar=false"><a ng-init="deleteMessage= 'X'" >{{deleteMessage}}</a><span ng-if="showWar == true">(<a ng-click="deleteit(x)">Yes</a> <a ng-click="showWarnning()">No</a>)</span></td>
+        </tr>
+    </table>
+    <div>
+        Filters :
+        <a href="/#!/rich" ng-hide="RichCount == 0 ">#rich</a>
+        <a href="/#!/genius" ng-hide="GeniusCount == 0 ">#genius</a>
+        <a href="/#!/spower" ng-hide="SpowerCount == 0 ">#super Power</a>
+        <a href="/#!/">#NoFilters</a>
+    </div>
+</div>
+<div class="sidebar">
+    <h1>sidebar</h1>
+    <h2>Total Person : {{totalPerson}}</h2>
+    <p>genius : {{GeniusCount}}</p>
+    <p> rich : {{RichCount}}</p>
+    <p> super power  : {{SpowerCount}}</p>
+</div>
+</div>
